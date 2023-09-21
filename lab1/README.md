@@ -39,3 +39,16 @@ Tirar o warning das Threads do Maven
 ## Ex3
 
 Ao adicionar o .gitignore, não esquecer de fazer o comando `git -rm --cached .` senão depois vão coisas que não queríamos para o remote
+
+Ao usar o log4j2, para fazer os logs, meter sempre a sua configuração, ou seja, o seu ficheiro .xml dentro da pasta ``/src/main/resources``
+
+É possível ter loggers diretamente numa consola, num ficheiro ou ambos. </br>
+Para além disso, notar que existem ainda várias categorias de loggs:
+- info;
+- error;
+- debug;
+- framework;
+- perf;
+- trace.
+
+Ter atenção à maneira como configuramos o XML
