@@ -1,5 +1,7 @@
 # Lab1_2
 
+## Ex2
+
 GroupID - pt.ua.ies </br>
 artifactID- É mais o nome da pasta, tipo Lab1_2 </br>
 Mas também pode ser o que diz no guião, tipo MyWeatherRadar 
@@ -22,3 +24,12 @@ mvn package // get dependecies, compiles the project and creates the jar </br>
 
 mvn exec:java -Dexec.mainClass="pt.ua.ies.WeatherStarter" //adapt to match your own package structure and class name
 ``` 
+
+Passar um argumento ao Maven
+```java
+mvn exec:java -Dexec.mainClass="pt.ua.ies.WeatherStarter" -Dexec.args="1010500"
+```
+
+## Ex3
+
+Ao adicionar o .gitignore, não esquecer de fazer o comando `git -rm --cached .` senão depois vão coisas que não queríamos para o remote
