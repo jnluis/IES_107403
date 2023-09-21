@@ -2,8 +2,11 @@
 
 ## Ex2
 
-GroupID - pt.ua.ies </br>
-artifactID- É mais o nome da pasta, tipo Lab1_2 </br>
+**pom.xml** - Ficheiro XML que tem toda a informação sobre o projeto e os detalhes de configuração usados pelo Maven. </br>
+Contém default values para a maioria dos projetos.  Os erros de dependências estão aqui!</br> 
+**Maven Archetype** - Modelo base do qual é gerado um projeto Maven com determinadas caraterísticas.</br>
+**GroupID** - pt.ua.ies </br>
+**artifactID**- É mais o nome da pasta, tipo Lab1_2 </br>
 Mas também pode ser o que diz no guião, tipo MyWeatherRadar 
 
 Para fazer o HHTP request, </br>
@@ -29,7 +32,10 @@ Passar um argumento ao Maven
 ```java
 mvn exec:java -Dexec.mainClass="pt.ua.ies.WeatherStarter" -Dexec.args="1010500"
 ```
-
+Tirar o warning das Threads do Maven
+```java
+-Dexec.cleanupDaemonThreads=false
+```
 ## Ex3
 
 Ao adicionar o .gitignore, não esquecer de fazer o comando `git -rm --cached .` senão depois vão coisas que não queríamos para o remote

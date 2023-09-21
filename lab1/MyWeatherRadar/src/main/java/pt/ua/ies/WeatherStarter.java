@@ -4,8 +4,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import pt.ua.ies.IpmaService;
-import pt.ua.ies.CityForecast;
+
 
 /**
  * demonstrates the use of the IPMA API for weather forecast
@@ -39,11 +38,19 @@ public class WeatherStarter {
             IpmaCityForecast forecast = apiResponse.body();
 
             if (forecast != null) {
-                var firstDay = forecast.getData().listIterator().next();
-
-                System.out.printf( "max temp for %s is %4.1f %n",
-                        firstDay.getForecastDate(),
-                        Double.parseDouble(firstDay.getTMax()));
+                System.out.printf("Tempo para as coordenadas %sº , %sº \n", forecast.getData().listIterator().next().getLatitude(), forecast.getData().listIterator().next().getLongitude());
+                System.out.println("");
+                for(int i=0; i< forecast.getData().size() ; i++){
+                    System.out.print("------------ Data ------------------\n");
+                    System.out.printf("---------- %s --------------\n",forecast.getData().get(i).getForecastDate());
+                    System.out.printf("Probabilidade de chuva: %s \n", forecast.getData().get(i).getPrecipitaProb());
+                    System.out.printf("Amplitude térmica para o dia: %.2f \n", Double.parseDouble(forecast.getData().get(i).getTMax()) - Double.parseDouble(forecast.getData().get(i).getTMin()));
+                    System.out.println("");
+                }
+                //var firstDay = forecast.getData().listIterator().next();
+                // System.out.printf( "max temp for %s is %4.1f %n",
+                  //      firstDay.getForecastDate(),
+                    //    Double.parseDouble(firstDay.getTMax()));
             } else {
                 System.out.println( "No results for this request!");
             }
