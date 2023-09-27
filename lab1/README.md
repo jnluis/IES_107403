@@ -9,6 +9,14 @@ Contém default values para a maioria dos projetos.  Os erros de dependências e
 **artifactID**- É mais o nome da pasta, tipo Lab1_2 </br>
 Mas também pode ser o que diz no guião, tipo MyWeatherRadar 
 
+### **Alguns Comandos Maven**
+
+**mvn package**: Obtém as dependências e gera o ficheiro JAR;
+
+**mvn clean**: Limpa os ficheiros binários da pasta /target;
+
+**mvn install** : Compila o projeto e instala-o no repositório local do Maven;
+
 Para fazer o HHTP request, </br>
 1. HTTP client, converter classes para JSON </br>
 2. validar URL </br>
@@ -145,4 +153,25 @@ O docker compose tem muitos mais comandos, por isso o melhor é fazer `--help` p
 **Parar o docker e apagar os dados do volume**
 ```bash
 docker-compose down --volumes
+```
+
+## Ex5 
+
+Para colocar um ficheiro java no Docker, seguir este tutorial: </br>
+https://www.baeldung.com/java-dockerize-app
+
+De notar que para o Maven dar build e package do runnable jar, é necessário fazer:
+``` 
+maven package
+```
+
+**Build da imagem Docker:** </br>
+De notar que a flag `-t` especifica o <nome>:<tag> 
+```bash
+docker image build -t docker-java-jar:latest .
+```
+
+**Run da imagem:**
+```bash
+docker run docker-java-jar:latest
 ```
