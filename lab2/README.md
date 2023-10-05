@@ -71,3 +71,15 @@ Podemos usar o Spring Initializr, para gerar por nós um projeto com as depênde
 Para além disso, pode ser necesário usar um Maven Wrapper e assim já não é necessário instalar todas as versões específicas do Maven. </br>
 Basta ir à main folder do projeto e fazer o comando ```mvn -N wrapper:wrapper```
 
+A anotação @GetMapping garante que o GET request /greeting é mapeado para o método java greeting()
+
+Para mudar o porto onde o servidor corre, é necessário ir ao ficheiro ```application.properties``` que vem com o Maven e escrever `server.port = 9000`, por exemplo.
+
+Até aqui, a aplicação estava a intercetar o request HTTP e dava redirect para uma página. </br>
+É mais normal e usual usar um REST endpoint, que ouve um request HTTP e responde no formato JSON. Para testar o endpoit com um nome específico, podíamos fazer `http://localhost:9000/restgreeting?name=joao`
+
+Para isso, foi preciso criar uma classe que represente o que queremos chamar e depois fazer outro Controller, que dá handle nos HTTP requests.
+
+Para restar uma REST API com o curl, ver o link https://www.baeldung.com/curl-rest </br>
+Para testar o método GET deste exercício, bastou fazer `curl -v http://localhost:9000/restgreeting
+`
