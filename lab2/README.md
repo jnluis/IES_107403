@@ -61,7 +61,7 @@ Para lançar as imagens, fazemos ```docker-compose up```
 
 ![Screenshot](Diffs.webp)
 
-## Ex3
+## Ex3 e Ex4
 
 Spring Boot permite criar Spring based Applications, fazendo poucas configurações. </br>
 Mais info's: https://spring.io/projects/spring-boot#overview
@@ -71,7 +71,9 @@ Podemos usar o Spring Initializr, para gerar por nós um projeto com as depênde
 Para além disso, pode ser necesário usar um Maven Wrapper e assim já não é necessário instalar todas as versões específicas do Maven. </br>
 Basta ir à main folder do projeto e fazer o comando ```mvn -N wrapper:wrapper```
 
-A anotação @GetMapping garante que o GET request /greeting é mapeado para o método java greeting()
+Quando se corre o projeto sem chamar nenhum método, é normal ter o erro "White Label error", que é um erro do Spring Boot
+
+A anotação @GetMapping garante que o GET request /greeting é mapeado para o método java greeting() e o @RequestParam serve para passar parametros no método, sendo que por default ele é required se for usado. No entanto, podemos fazer `required = false`, e pôr sim um valor default quando não é passado nenhum parâmetro `defaultValue= "World"`.
 
 Para mudar o porto onde o servidor corre, é necessário ir ao ficheiro ```application.properties``` que vem com o Maven e escrever `server.port = 9000`, por exemplo.
 
@@ -81,5 +83,7 @@ Até aqui, a aplicação estava a intercetar o request HTTP e dava redirect para
 Para isso, foi preciso criar uma classe que represente o que queremos chamar e depois fazer outro Controller, que dá handle nos HTTP requests.
 
 Para restar uma REST API com o curl, ver o link https://www.baeldung.com/curl-rest </br>
-Para testar o método GET deste exercício, bastou fazer `curl -v http://localhost:9000/restgreeting
+Para testar o método GET do Ex3, bastou fazer `curl -v http://localhost:9000/restgreeting
 `
+
+O Spring Boot tem a particularidade de devolver as chamadas à API logo no formato JSON.
