@@ -30,11 +30,29 @@ Spring Initializr é a forma mais rápida de criar um projeto Spring Boot
 
 ## Ex2
 
-Vamos usar um Application Server em vez de um WebServer. </br>
-Usamos o TomCat e em vez de fazermos download disto, metemos numa imagem através do  docker-compose. </br>
-Para lançar as imagens, fazemos ```docker-compose up```
+Como para este exercício, temos de usar o MySQl podemos colocar a BD num container docker, fazendo:
 
-![Screenshot](Diffs.webp)
+```docker
+docker run --name mysql5 -e MYSQL_ROOT_PASSWORD=secret1 -e MYSQL_DATABASE=demo -e
+MYSQL_USER=demo -e MYSQL_PASSWORD=secret2 -p 33060:3306 -d mysql/mysql-server:5.7
+```
+
+![Screenshot](SpringBoot_ProjectStructure.PNG)
+
+Seguindo o tutorial 
+https://www.javaguides.net/2018/09/spring-boot-2-jpa-mysql-crud-example.html
+
+vamo ter neste exerćicio, uma *@Entity* Employee, um *@Repository* EmployeeRepository, um *@RestController*, que é quem usa as tabelas da base de dados e ainda uma Exception, de *Resource Not Found*, usado para tratar erros que possam aparecer da maneira definida pelo programador.
+
+Para além disso, nota também para a anotação *@Valid* e *@RequestBody*, que fazem com que o corpo do HttpRequest feito, possa ser automaticamente convertido para um objeto Java.
+
+Além disto, tudo, configuramos nos ficheiro application.properties as definições para nos ligarmos à BD, de destacar o comando `spring.jpa.hibernate.ddl-auto = update` para dar update automático aos schemas da BD. <br>
+Mais info em https://www.baeldung.com/spring-data-jpa-generate-db-schema
+
+Tive de colocar os comandos `spring.jpa.open-in-view=false` e `spring.jpa.properties.hibernate.globally_quoted_identifiers=true` para resolver o problema da *LazyInitializationException* e de passar nomes de tabelas que não seguem as normas mais padrão, usando aspas para resolver o problema, respetivamente.
+
 
 ## Ex3 
+
+
 
