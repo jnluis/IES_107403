@@ -23,6 +23,14 @@ public class User {
 
     // standard constructors / setters / getters / toString
 
+    public User(String nome, String email, String phone){
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+    public User(){
+
+    }
     public long getId() {
         return id;
     }
