@@ -42,7 +42,9 @@ MYSQL_USER=demo -e MYSQL_PASSWORD=secret2 -p 33060:3306 -d mysql/mysql-server:5.
 Seguindo o tutorial 
 https://www.javaguides.net/2018/09/spring-boot-2-jpa-mysql-crud-example.html
 
-vamo ter neste exerćicio, uma *@Entity* Employee, um *@Repository* EmployeeRepository, um *@RestController*, que é quem usa as tabelas da base de dados e ainda uma Exception, de *Resource Not Found*, usado para tratar erros que possam aparecer da maneira definida pelo programador.
+Este tutorial usa o Lombok para anotações @Data, que criam por exemplo anotações de *@Getters* e *@Setters*. No entanto, Lombok não é compatível com o JPA, porque a solução é mesmo usar o IDE para gerar os getters e setters e o codigo da classe fica um pouco maior. 
+
+Vamos ter neste exerćicio, uma *@Entity* Employee, um *@Repository* EmployeeRepository, um *@RestController*, que é quem usa as tabelas da base de dados e ainda uma Exception, de *Resource Not Found*, usado para tratar erros que possam aparecer da maneira definida pelo programador.
 
 Para além disso, nota também para a anotação *@Valid* e *@RequestBody*, que fazem com que o corpo do HttpRequest feito, possa ser automaticamente convertido para um objeto Java.
 
