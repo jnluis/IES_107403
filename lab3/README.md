@@ -53,6 +53,21 @@ Mais info em https://www.baeldung.com/spring-data-jpa-generate-db-schema
 
 Tive de colocar os comandos `spring.jpa.open-in-view=false` e `spring.jpa.properties.hibernate.globally_quoted_identifiers=true` para resolver o problema da *LazyInitializationException* e de passar nomes de tabelas que não seguem as normas mais padrão, usando aspas para resolver o problema, respetivamente.
 
+Por último, tive de cololcar também o comando`spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect` nas properties, porque não estava a funcionar por *default*.
+
+#### Testes aos endpoints usando o POSTMAN:
+
+Post ![alt attribute goes here!](Post.png )
+Get ![alt attribute goes here!](GET.png )
+Get_ID ![alt attribute goes here!](GET_ID.png)
+Put_ID ![alt attribute goes here!](PUT_ID.png )
+Delete_ID ![alt attribute goes here!](DELETE_ID.png )
+
+Para fazer a alínea g), em que é passado um parâmetro pelo URL, que pode ser opcional, é preciso fazer o seguinte no nosso código Java:
+
+```Java
+@RequestParam(required = false) String email, ...
+```
 
 ## Ex3 
 

@@ -20,7 +20,6 @@ public class EmployeeController {
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees(@RequestParam(required = false) String email,@RequestParam(required = false) String firstName,@RequestParam(required = false) String lastName){
-        // System.out.println(email + " " + firstName + " " + lastName);
         if (email != null){return employeeRepository.findByEmailId(email);}
         else if (firstName != null) {return employeeRepository.findByFirstName(firstName);}
         else if (lastName != null) {return employeeRepository.findByLastName(lastName);}
