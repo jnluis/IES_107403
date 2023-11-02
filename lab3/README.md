@@ -71,5 +71,19 @@ Para fazer a alínea g), em que é passado um parâmetro pelo URL, que pode ser 
 
 ## Ex3 
 
+A API desenvolvida permite fazer os métodos HTTP GET, POST, PUT e DELETE para as Quotes e para os Shows. 
+
+Como, para este exercício, temos 2 serviços, para correr isto no Docker vamos ter de fazer um Docker Compose.
+
+A app corre ela própria num DockerFile, mas neste momento, dá *build failed.*
+
+De notar que criei um ficheiro .env para configuração das variáveis de ambiente, e que não está no Repositório remoto pois tem informações sensíveis e que não devem estar em repo's remotos. 
+A informação do MySQL está a ser guardada num volume do docker.
+
+Para iniciar o processo, fiz `docker-compose up`.
+Testei os endpoints da API através do PostMan, fazendo ,por exemplo, 
+ 
+No final, para não ficar com qualquer container ou imagem que estava a ser usado pelo docker compose, fiz o comando `docker-compose down --rmi all`
+
 
 

@@ -104,6 +104,8 @@ fabric.properties
 
 # Markdown Navigator plugin
 .idea/**/markdown-navigator.xml
+
+.env
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/intellij
